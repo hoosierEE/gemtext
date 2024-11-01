@@ -1,10 +1,7 @@
 * Gemtext
-Gemtext is a simple markup language, like Markdown but stripped down to the essentials.
+A markup language similar to Markdown but with fewer features. Gemtext only supports markup for paragraphs, links, unordered lists, blockquotes, and preformatted text.
 
 https://geminiprotocol.net/docs/gemtext.gmi
 
-Despite this simplicity, some aspects remained unclear to me so I wrote a translator (compiler?) from gemtext to html.
-I used Go for the first translator, which has the benefit of being able to produce a statically linked binary file.
-This will be the reference implementation and I plan to reimplement the same translator in other languages.
-
-The translator needs to be able to work with files on the operating system and perform the core task of transforming strings to different strings.
+Despite its simplicity, some specifics were unclear to me so I wrote a translator/compiler from gemtext to html.
+My first implementation is in Go, and I plan to reimplement the same program in other languages as a way to get familiar with other languages.
