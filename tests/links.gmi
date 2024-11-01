@@ -1,0 +1,10 @@
+=>link text goes here
+=> https://geminiprotocol.net/docs/gemtext.gmi gemtext description
+
+=> https://geminiprotocol.net/docs/gemtext.gmi
+=>https://geminiprotocol.net/docs/gemtext.gmi
+
+=>https://example.com A cool website
+=>gopher://example.com      An even cooler gopherhole
+=> gemini://example.com A supremely cool Gemini capsule
+=>   sftp://example.com
