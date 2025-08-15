@@ -6,7 +6,7 @@ generate_tests() {
     go build -C golang .
     # generate html from reference implementation
     for f in tests/*.gmi; do
-        golang/gemtext < "${f}" > "${f/.gmi/.html}"
+        golang/gemtext_ref < "${f}" > "${f/.gmi/.html}"
     done
 }
 
@@ -22,6 +22,5 @@ test_command() {
 }
 
 generate_tests
-test_command golang
 test_command python
 test_command elixir

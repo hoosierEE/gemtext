@@ -1,7 +1,7 @@
 package main
 
 import (
-	"gemtext/g2h"
+	"gemtext_ref/g2h"
 	"os"
 )
 
