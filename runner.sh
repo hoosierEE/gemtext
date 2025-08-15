@@ -1,19 +1,27 @@
 #!/bin/zsh
 
 # build reference implementation binary called "gemtext"
-go build .
 
-# generate html from reference implementation
-for f in tests/*.gmi; do
-    ./gemtext < $f > "${f/.gmi/.html}"
-done
+generate_tests() {
+    go build -C golang .
+    # generate html from reference implementation
+    for f in tests/*.gmi; do
+        golang/gemtext < "${f}" > "${f/.gmi/.html}"
+    done
+}
 
-# compare with expected html
-for f in tests/*.gmi; do
-    if ! diff -q <(./gemtext < $f) "${f/.gmi/.html}"; then
-        echo "exiting after first test failure"
-        exit 1
-    fi
-done
+test_command() {
+    # echo $1
+    for f in tests/*.gmi; do
+        # ${1}/gemtext < $f
+        if ! diff -q <(${1}/gemtext < ${f}) <(cat ${f/.gmi/.html}); then
+            echo ${1} $f
+            exit 1
+        fi
+    done
+}
 
-echo "all tests passed!"
+generate_tests
+test_command golang
+test_command python
+test_command elixir
